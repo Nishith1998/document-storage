@@ -13,13 +13,17 @@ import { fakeBackendProvider } from './fakeBackend';
 import { TokenInterceptor } from './interceoptors/token.interceptor';
 import { MaterialModule } from './material/material.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { UploadDocumentComponent } from './components/upload-document/upload-document.component';
+import { DragAndDropDirective } from './directives/drag-and-drop.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     // SignUpComponent,
-    DashboardComponent
+    DashboardComponent,
+    UploadDocumentComponent,
+    DragAndDropDirective
   ],
   imports: [
     BrowserModule,

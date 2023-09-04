@@ -1,0 +1,9 @@
+.fileDropping + div.upload-icon, .upload-file-container:hover div.upload-icon {
+    @apply animate-bounce;
+}
+
+// .upload-file-container:hover {
+//     div {
+//         @apply animate-bounce;
+//     }   
+// }

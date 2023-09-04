@@ -9,4 +9,8 @@
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
+  <div class="z-50 flex justify-center items-center absolute top-0 left-0 w-full h-full backdrop-blur-sm" *ngIf="commonService.isLoading">
+    <mat-progress-spinner color="primary" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
   <router-outlet></router-outlet>
