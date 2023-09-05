@@ -15,6 +15,8 @@ import { MaterialModule } from './material/material.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { UploadDocumentComponent } from './components/upload-document/upload-document.component';
 import { DragAndDropDirective } from './directives/drag-and-drop.directive';
+import { DocumentDetailsComponent } from './components/document-details/document-details.component';
+import { DocumentDetailsResolver } from './resolvers/document-details.resolver';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { DragAndDropDirective } from './directives/drag-and-drop.directive';
     // SignUpComponent,
     DashboardComponent,
     UploadDocumentComponent,
-    DragAndDropDirective
+    DragAndDropDirective,
+    DocumentDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,11 +37,7 @@ import { DragAndDropDirective } from './directives/drag-and-drop.directive';
     HttpClientModule
   ],
   providers: [
-    // {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create fake backend
     fakeBackendProvider
 ],
   bootstrap: [AppComponent]

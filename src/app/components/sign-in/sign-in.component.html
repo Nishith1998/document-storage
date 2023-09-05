@@ -4,19 +4,20 @@
         <mat-card class="p-4 mb-4 !bg-red-400" *ngIf="error">Username or Password is incorrect !</mat-card>
         <mat-form-field>
             <mat-label>Username</mat-label>
-            <input type="text" matInput formControlName="username" placeholder="Ex. pat@example.com">
+            <input 
+            type="text" matInput formControlName="username" placeholder="test is correct username">
             <mat-error *ngIf="f['username'].hasError('required')">
                 Username is required
             </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
             <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password">
+            <input placeholder="test is password" type="password" matInput formControlName="password">
             <mat-error *ngIf="f['password'].hasError('required')">
                 Password is required
             </mat-error>
         </mat-form-field>
-        <button mat-raised-button [disabled]="loading" class="btn btn-primary">
+        <button color="primary" mat-raised-button [disabled]="loading" class="btn btn-primary">
             Login
         </button>
         <!-- </div> -->

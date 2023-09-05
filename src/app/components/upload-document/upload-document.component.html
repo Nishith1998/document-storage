@@ -1,18 +1,16 @@
 <div class="absolute flex w-full h-full top-0 left-0 justify-center items-center">
 
     <form class="flex flex-col justify-center items-center gap-4" [formGroup]="uploadDocForm" (ngSubmit)="onSubmit()">
-        
+
         <div
             class="upload-file-container w-32 h-32 box-content p-4 flex flex-col justify-center border-2 border-dashed relative">
-            <!-- accept="pdf" -->
-            <input [formControl]="fileControl" appDragAndDrop class="opacity-0 absolute z-10 w-full h-full top-0 left-0"
+            <input [formControl]="fileControl" appDragAndDrop
+                class="opacity-0 cursor-pointer absolute z-10 w-full h-full top-0 left-0"
                 (fileDropped)="handleFileDropped($event)" (change)="handleFileChange($event)" id="fileUpload"
                 type="file" #fileDropRef />
-            <div class="upload-icon flex justify-center items-center text-6xl"><mat-icon [inline]="true">cloud_upload</mat-icon></div>
+            <div class="upload-icon flex justify-center items-center text-6xl"><mat-icon
+                    [inline]="true">cloud_upload</mat-icon></div>
             <div class="!text-md animate-none truncate" *ngIf="f['fileSrc'].valid">{{fileControl.value.slice(12)}}</div>
-            <!-- <h3>Drag and drop files here</h3>
-        <h3>or</h3>
-        <label for="fileUpload">Browse for file</label> -->
         </div>
         <mat-error *ngIf="fileControl.touched && f['fileSrc'].hasError('required')">File is required!</mat-error>
         <mat-error *ngIf="fileControl.touched && f['fileSrc'].hasError('fileType')">Only PDF is allowed!</mat-error>
@@ -21,16 +19,15 @@
         <mat-form-field class="example-full-width">
             <mat-label>File name</mat-label>
             <input type="text" matInput formControlName="fileName">
+            <mat-error *ngIf="f['fileName'].hasError('required')">File name is required</mat-error>
+
         </mat-form-field>
         <mat-form-field>
             <mat-label>Description</mat-label>
-            <textarea matInput
-                      cdkTextareaAutosize
-                      #autosize="cdkTextareaAutosize"
-                      cdkAutosizeMinRows="1"
-                      cdkAutosizeMaxRows="5"></textarea>
-          </mat-form-field>
+            <textarea matInput formControlName="fileDescription" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
 
-        <button type="submit" mat-raised-button>Add doc</button>
+        <button color="primary" type="submit" mat-raised-button>Add doc</button>
     </form>
 </div>

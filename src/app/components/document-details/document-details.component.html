@@ -1,0 +1,17 @@
+<div class="absolute top-16 left-0 flex flex-col w-full pt-16 justify-center items-center">
+    <mat-card class="flex justify-center items-center w-1/2">
+        <mat-card-header class="flex w-full justify-center items-center text-xl">
+            Document Details
+        </mat-card-header>
+        <mat-card-content class="flex justify-center">
+            <div class="grid grid-cols-2 m-4">
+                <div class="text-lg font-medium">File Name:</div>
+                <div class="text-lg">{{documentDetails["fileName"]}}</div>
+            </div>
+            <div class="grid grid-cols-2 m-4">
+                <div class="text-lg font-medium">File Description:</div>
+                <div class="text-lg">{{documentDetails["fileDescription"]}}</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

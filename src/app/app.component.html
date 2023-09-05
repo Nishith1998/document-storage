@@ -1,16 +1,24 @@
-
-  <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>edit</mat-icon>
+<mat-toolbar class="absolute top-0 left-0 z-40">
+  <button [routerLink]="'/'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon color="primary">cloud</mat-icon>
+  </button>
+  <span>Document Storage</span>
+  <span class="mx-auto"></span>
+  <div class="flex items-center">
+    <button matTooltip="Go to dashboard" [routerLink]="'/dashboard'" mat-icon-button class="">
+      <mat-icon color="primary">dashboard</mat-icon>
     </button>
-    <span>Document Storage</span>
-    <span class="mx-auto"></span>
-    <button *ngIf="currentUser" (click)="logout()">
+    <button matTooltip="Add document" [routerLink]="'/upload-document'" mat-icon-button class="">
+      <mat-icon color="primary">add</mat-icon>
+    </button>
+    <button matTooltip="Logout" mat-icon-button *ngIf="currentUser" (click)="logout()">
       <mat-icon>logout</mat-icon>
     </button>
-  </mat-toolbar>
-  <div class="z-50 flex justify-center items-center absolute top-0 left-0 w-full h-full backdrop-blur-sm" *ngIf="commonService.isLoading">
-    <mat-progress-spinner color="primary" mode="indeterminate">
-    </mat-progress-spinner>
   </div>
-  <router-outlet></router-outlet>
+</mat-toolbar>
+<div class="z-50 flex justify-center items-center absolute top-0 left-0 w-full h-full backdrop-blur-sm"
+  *ngIf="commonService.isLoading">
+  <mat-progress-spinner color="primary" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+<router-outlet></router-outlet>

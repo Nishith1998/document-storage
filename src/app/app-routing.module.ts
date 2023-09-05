@@ -5,6 +5,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './interceoptors/auth.guard';
 import { UploadDocumentComponent } from './components/upload-document/upload-document.component';
+import { DocumentDetailsComponent } from './components/document-details/document-details.component';
+import { DocumentDetailsResolver } from './resolvers/document-details.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -12,6 +14,7 @@ const routes: Routes = [
   { path: 'register-user', component: SignUpComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'upload-document', component: UploadDocumentComponent, canActivate: [AuthGuard] },
+  { path: 'document-details/:id', component: DocumentDetailsComponent, canActivate: [AuthGuard], resolve: {documentDetails: DocumentDetailsResolver} },
 ];
 
 @NgModule({

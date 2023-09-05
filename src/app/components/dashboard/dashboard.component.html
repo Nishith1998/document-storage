@@ -1,1 +1,19 @@
-<p>dashboard works!</p>
+<div class="absolute flex flex-col w-full h-full top-0 left-0 justify-center items-center">
+    <div *ngIf="documentList.length !== 0" class="flex flex-col w-1/2">
+        <mat-table [dataSource]="documentList" class="mat-elevation-z8">
+            <ng-container matColumnDef="fileName">
+                <mat-header-cell *matHeaderCellDef class="text-lg font-semibold"> Uploaded Documents </mat-header-cell>
+                <mat-cell *matCellDef="let element;let i = index" class="text-md" [routerLink]="'/document-details/'+i">
+                    {{element.fileName}} </mat-cell>
+            </ng-container>
+
+            <mat-row *matHeaderRowDef="displayedColumns"></mat-row>
+            <mat-row class="cursor-pointer" matTooltip="Go to details" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+
+    <div class="flex items-center" *ngIf="documentList.length === 0">
+        <mat-icon>block_outline</mat-icon>
+        <div class="text-2xl">No Documents uploaded</div>
+    </div>
+</div>
